@@ -1,12 +1,54 @@
-<div>
-    <label for="userId">User ID to Update:</label>
-    <input type="number" [(ngModel)]="userId" id="userId">
+<h2 mat-dialog-title>Update User</h2>
+<mat-dialog-content>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid grid-cols-2 gap-3">
+        <mat-form-field appearance="fill">
+            <mat-label>Id</mat-label>
+            <input matInput formControlName="employeeId" [readonly]="true">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" [readonly]="true">
+        </mat-form-field>
 
-    <label for="userName">User Name:</label>
-    <input type="text" [(ngModel)]="userName" id="userName">
 
-    <label for="userEmail">User Email:</label>
-    <input type="email" [(ngModel)]="userEmail" id="userEmail">
+        <mat-form-field appearance="fill">
+            <mat-label>Firstname</mat-label>
+            <input matInput formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Lastname</mat-label>
+            <input matInput formControlName="lastName">
+        </mat-form-field>
 
-    <button (click)="onUpdateUser()">Update User</button>
-</div>
+        <mat-form-field appearance="fill">
+            <mat-label>Avatar Src</mat-label>
+            <input matInput formControlName="image">
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <input matInput formControlName="role">
+        </mat-form-field>
+
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="phoneNumber">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <input matInput formControlName="status">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Update</button>
+</mat-dialog-actions>

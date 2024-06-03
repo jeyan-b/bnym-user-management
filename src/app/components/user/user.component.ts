@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
 import { deleteUser, updateUser } from '../../user-store/actions';
+import { UpdateUserComponent } from '../update-user/update-user.component';
 
 @Component({
   selector: 'app-user',
@@ -14,13 +15,14 @@ export class UserComponent {
   @Input() user: User;
   constructor(private store: Store, public dialog: MatDialog) {}
   updateUser(user: User) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Are you sure you want to delete this user?' },
+    const dialogRef = this.dialog.open(UpdateUserComponent, {
+      width: '800px',
+      data: user,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.store.dispatch(updateUser({ user }));
+        this.store.dispatch(updateUser({ user: result }));
       }
     });
   }

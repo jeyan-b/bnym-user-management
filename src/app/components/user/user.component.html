@@ -1,0 +1,25 @@
+<div>
+    <div class="flex justify-between p-4">
+
+        <div>
+            <div class="flex-1">
+                <span class="text-lg font-semibold mb-1">{{ user.firstName }} {{user.lastName}}</span>
+                <span
+                    class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-lg">{{user.status}}</span>
+            </div>
+            <p class="text-gray-500 mb-2">{{ user.role }}</p>
+        </div>
+        <div class="mr-4">
+            <img class="w-12 h-12 rounded-full" [src]="user.image" alt="User Image">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="flex-1 border-t-2 border-r-2 border-gray-200  py-3 rounded-es-lg ">
+            <button class="w-full">Update</button>
+        </div>
+        <div class="flex-1 border-t-2 border-gray-200 py-3 rounded-ee-lg ">
+            <button class="w-full ">Remove</button>
+
+        </div>
+    </div>
+</div>

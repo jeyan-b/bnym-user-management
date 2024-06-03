@@ -1,0 +1,12 @@
+<div>
+    <label for="userId">User ID to Update:</label>
+    <input type="number" [(ngModel)]="userId" id="userId">
+
+    <label for="userName">User Name:</label>
+    <input type="text" [(ngModel)]="userName" id="userName">
+
+    <label for="userEmail">User Email:</label>
+    <input type="email" [(ngModel)]="userEmail" id="userEmail">
+
+    <button (click)="onUpdateUser()">Update User</button>
+</div>

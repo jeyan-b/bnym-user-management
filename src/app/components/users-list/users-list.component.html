@@ -1,4 +1,7 @@
 <div class="p-10 bg-gray-100">
+    <div class="w-full h-auto">
+        <button (click)="addUser()">Add user</button>
+    </div>
     <div *ngIf="error$ | async as error">
         <p>{{ error }}</p>
     </div>

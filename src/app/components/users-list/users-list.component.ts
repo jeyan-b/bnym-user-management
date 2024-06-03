@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user.model';
-import { loadUsers, deleteUser } from '../../user-store/actions';
+import { loadUsers, deleteUser, addUser } from '../../user-store/actions';
 import { selectAllUsers, selectUserError } from '../../user-store/selectors';
+import { AddUserComponent } from '../add-user/add-user.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-users-list',
@@ -52,7 +54,7 @@ export class UsersListComponent implements OnInit {
     },
   ];
 
-  constructor(private store: Store) {
+  constructor(private store: Store, public dialog: MatDialog) {
     this.users$ = this.store.pipe(select(selectAllUsers));
     this.error$ = this.store.pipe(select(selectUserError));
   }
@@ -63,5 +65,18 @@ export class UsersListComponent implements OnInit {
 
   onDelete(id: number) {
     this.store.dispatch(deleteUser({ id }));
+  }
+  addUser() {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      data: { message: 'Are you sure you want to delete this user?' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        delete result.id;
+        console.log(result);
+        this.store.dispatch(addUser({ user: result }));
+      }
+    });
   }
 }

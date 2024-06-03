@@ -11,16 +11,14 @@ import {
   deleteUserSuccess,
   updateUser,
   updateUserSuccess,
+  addUserSuccess,
+  addUser,
 } from './actions';
 import { UserService } from '../services/user.service';
 
 @Injectable()
 export class UserEffects {
-  constructor(
-    private actions$: Actions,
-    private userService: UserService,
-    private store: Store
-  ) {}
+  constructor(private actions$: Actions, private userService: UserService) {}
 
   loadUsers$ = createEffect(() =>
     this.actions$.pipe(
@@ -33,7 +31,24 @@ export class UserEffects {
       )
     )
   );
+  addUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(addUser),
+      mergeMap((action) =>
+        this.userService.addUser(action.user).pipe(
+          map((user) => addUserSuccess({ user })),
+          catchError(() => of({ type: '[User] Add User Failed' }))
+        )
+      )
+    )
+  );
 
+  addUserSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(addUserSuccess),
+      map(() => loadUsers())
+    )
+  );
   deleteUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(deleteUser),

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, Inject } from '@angular/core';
 import { User } from '../../models/user.model';
-import { addUser } from '../../user-store/actions';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UpdateUserComponent } from '../update-user/update-user.component';
 
 @Component({
   selector: 'app-add-user',
@@ -9,34 +10,36 @@ import { addUser } from '../../user-store/actions';
   styleUrl: './add-user.component.scss',
 })
 export class AddUserComponent {
-  user: User = {
-    id: 0,
-    name: '',
-    email: '',
-    lastName: '',
-    firstName: '',
-    phoneNumber: '',
-    status: '',
-    employeeId: '',
-    role: '',
-    image: '',
-  };
+  userForm: FormGroup;
 
-  constructor(private store: Store) {}
+  constructor(
+    private fb: FormBuilder,
+    public dialogRef: MatDialogRef<AddUserComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User
+  ) {
+    this.userForm = this.fb.group({
+      id: [''],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phoneNumber: ['', Validators.required],
+      status: ['', Validators.required],
+      role: ['', Validators.required],
+      lastName: ['', Validators.required],
+      firstName: ['', Validators.required],
+      employeeId: ['', Validators.required],
+      image: ['', Validators.required],
+    });
+  }
 
-  onSubmit() {
-    this.store.dispatch(addUser({ user: this.user }));
-    this.user = {
-      id: 0,
-      name: '',
-      email: '',
-      lastName: '',
-      firstName: '',
-      phoneNumber: '',
-      status: '',
-      employeeId: '',
-      role: '',
-      image: '',
-    }; // reset form
+  ngOnInit(): void {}
+
+  onCancel(): void {
+    this.dialogRef.close();
+  }
+
+  onSubmit(): void {
+    if (this.userForm.valid) {
+      this.dialogRef.close(this.userForm.value);
+    }
   }
 }

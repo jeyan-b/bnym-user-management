@@ -3,6 +3,7 @@ import { User } from '../../models/user.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateUserComponent } from '../update-user/update-user.component';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-add-user',

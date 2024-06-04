@@ -1,0 +1,82 @@
+img{
+    filter: drop-shadow(4px 2px 5px #eed);
+    width: 75px;
+    height: 75px;
+}
+.card {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  }
+.card-header {
+    background-color: #00b4db; /* Green color */
+    height: 100px;
+    position: relative;
+}
+
+
+.card-body {
+    background-color: #f1f4f7; /* Gray color */
+    padding: 20px;
+    padding-top: 60px; /* Space for image overlap */
+    position: relative;
+}
+
+.person-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    top: 50px;
+    left: 34%;
+    // transform: translateX(-50%);
+    transition: all 0.4s;
+    z-index: 1000;
+}
+.person-img:hover {
+    transform: scale(1.1);
+}
+.card-body h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.status{
+// width: 20%;
+// border-radius: 20px;
+// font-weight: 500;
+// position: absolute;
+// top: 25%;
+// right: 20px;
+
+// rotating top
+width: 40%;
+font-weight: 500;
+position: absolute;
+top: -35.5%;
+right: -24px;
+    transform: rotate(45deg);
+
+}
+.active_status{
+    background-color: #8ce99a;
+    color: #0A1829;
+  
+}
+.other_status{
+    background-color: #ff6b6b;
+    color: #000000;
+}

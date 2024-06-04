@@ -11,11 +11,8 @@
 <mat-dialog-content>
     <p>{{ data.message }}</p>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <div class="w-full">
-        <button class="float-right" mat-button mat-dialog-close (click)="onNoClick()">Cancel</button>
-        <button class="float-right" mat-button mat-dialog-close color="primary" (click)="onYesClick()"
+<mat-dialog-actions class="gap-4" align="center">
+        <button class="btns btn_secondary"  mat-dialog-close (click)="onNoClick()">Cancel</button>
+        <button class="btns btn_primary"  mat-dialog-close color="primary" (click)="onYesClick()"
             cdkFocusInitial>Confirm</button>
-    </div>
-
 </mat-dialog-actions>

@@ -1,0 +1,30 @@
+<section id="resume" class="resume">
+  <div class="container">
+    <div class="row" style="margin-top: 15px" *ngIf="member">
+      <div class="col-lg-12">
+        <h3 class="resume-title">Professional Experience</h3>
+        <div class="resume-item">
+          <div class="row">
+            <div class="col-md-5">
+              <h4>{{ member.firstName }} {{ member.lastName }}</h4>
+
+              <p><b>Role:</b> {{ member.role }}</p>
+              <p><b>Skills:</b> {{ member.skills }}</p>
+              <p><b>Experience:</b> {{ member.experience }}</p>
+              <p><b>Clients: </b>{{ member.client }}</p>
+            </div>
+            <div class="col-md-5">
+              <img [src]="member.profileImage" class="image-dev" />
+            </div>
+          </div>
+          <b>Notable Cotribution</b>
+          <ol class="orderlist">
+            <li *ngFor="let c of member.contributions">
+              {{ c }}
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

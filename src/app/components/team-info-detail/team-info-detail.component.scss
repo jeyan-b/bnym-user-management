@@ -13,30 +13,3 @@
   border-radius: 50%;
   transition: all 0.4s;
 }
-
-.image-selected {
-  transform: scale(1.1);
-}
-.profile_container {
-  gap: 15px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.profile_name {
-  font-size: 14px;
-  font-weight: 500;
-}
-.profile-block {
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-}
-
-h1 {
-  text-align: center;
-  font-weight: 500;
-}

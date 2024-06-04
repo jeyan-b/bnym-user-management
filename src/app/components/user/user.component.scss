@@ -16,19 +16,17 @@ img{
 
 .card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-
   }
 .card-header {
-    background-color: #00b4db; /* Green color */
+    background-color: #00b4db; 
     height: 100px;
     position: relative;
 }
 
-
 .card-body {
-    background-color: #f1f4f7; /* Gray color */
+    background-color: #f1f4f7; 
     padding: 20px;
-    padding-top: 60px; /* Space for image overlap */
+    padding-top: 60px;
     position: relative;
 }
 
@@ -40,7 +38,7 @@ img{
     position: absolute;
     top: 50px;
     left: 34%;
-    // transform: translateX(-50%);
+  
     transition: all 0.4s;
     z-index: 1000;
 }

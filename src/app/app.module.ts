@@ -23,11 +23,13 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserComponent } from './components/user/user.component';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
+import { TeamInfoDetailComponent } from './components/team-info-detail/team-info-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamInfoComponent,
+    TeamInfoDetailComponent,
     UsersListComponent,
     AddUserComponent,
     UpdateUserComponent,

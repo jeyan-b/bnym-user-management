@@ -22,10 +22,12 @@ import { userReducer } from './user-store/reducer';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserComponent } from './components/user/user.component';
+import { TeamInfoComponent } from './components/team-info/team-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TeamInfoComponent,
     UsersListComponent,
     AddUserComponent,
     UpdateUserComponent,

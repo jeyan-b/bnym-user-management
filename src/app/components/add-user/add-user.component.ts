@@ -29,6 +29,7 @@ export class AddUserComponent {
       firstName: ['', Validators.required],
       employeeId: ['', Validators.required],
       image: ['', Validators.required],
+      shortDescription:['']
     });
   }
 

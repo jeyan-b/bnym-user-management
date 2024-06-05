@@ -13,7 +13,9 @@ import { UpdateUserComponent } from '../update-user/update-user.component';
 })
 export class UserComponent {
   @Input() user: User;
-  constructor(private store: Store, public dialog: MatDialog) {}
+  constructor(private store: Store, public dialog: MatDialog) {
+   
+  }
   updateUser(user: User) {
     const dialogRef = this.dialog.open(UpdateUserComponent, {
       width: '800px',
@@ -36,5 +38,15 @@ export class UserComponent {
         this.store.dispatch(deleteUser({ id: user.id }));
       }
     });
+  }
+  onChange(event:any){
+console.log(event.checked,this.user,'event')
+// debugger;
+if(event.checked){
+  this.user.status='active'
+}
+else{
+  this.user.status='Inactive'
+}
   }
 }

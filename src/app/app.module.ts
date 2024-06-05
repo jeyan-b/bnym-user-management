@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { TeamInfoDetailComponent } from './components/team-info-detail/team-info
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatSlideToggleModule,
     ReactiveFormsModule,
     MatInputModule,
     StoreModule.forRoot({ users: userReducer }),

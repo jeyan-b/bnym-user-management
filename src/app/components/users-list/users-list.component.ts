@@ -25,6 +25,7 @@ export class UsersListComponent implements OnInit {
       phoneNumber: '9268890543',
       employeeId: 'EMPID101',
       status: 'active',
+      shortDescription:'Dummy Test',
       role: 'Lead Test',
       image: 'https://avatars.githubusercontent.com/u/6?v=4',
     },
@@ -37,6 +38,8 @@ export class UsersListComponent implements OnInit {
       phoneNumber: '9268890543',
       employeeId: 'EMPID101',
       status: 'active',
+      shortDescription:'Dummy Test',
+
       role: 'Lead',
       image: 'https://avatars.githubusercontent.com/u/1?v=4',
     },
@@ -50,6 +53,8 @@ export class UsersListComponent implements OnInit {
       employeeId: 'EMPID101',
       status: 'active',
       role: 'Lead',
+      shortDescription:'Dummy Test',
+
       image: 'https://avatars.githubusercontent.com/u/2?v=4',
     },
     {
@@ -62,6 +67,8 @@ export class UsersListComponent implements OnInit {
       employeeId: 'EMPID101',
       status: 'active',
       role: 'Lead',
+      shortDescription:'Dummy Test',
+
       image: 'https://avatars.githubusercontent.com/u/3?v=4',
     },
     {
@@ -74,6 +81,8 @@ export class UsersListComponent implements OnInit {
       employeeId: '123',
       status: 'Inactive',
       role: '123',
+      shortDescription:'Dummy Test',
+
       image: 'https://avatars.githubusercontent.com/u/4?v=4',
     },
     {
@@ -86,6 +95,7 @@ export class UsersListComponent implements OnInit {
       employeeId: 'testing',
       status: 'Inactive',
       role: 'led',
+      shortDescription:'Dummy Test',
       image: 'https://avatars.githubusercontent.com/u/5?v=4',
     },
   ];

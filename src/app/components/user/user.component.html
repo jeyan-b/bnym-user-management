@@ -1,4 +1,4 @@
-    <!-- <div class="flex justify-between p-4">
+<!-- <div class="flex justify-between p-4">
         <div>
             <div class="flex-1">
                 <span class="text-lg font-semibold mb-1">{{ user.firstName }} {{user.lastName}}</span>
@@ -21,23 +21,33 @@
         </div>
     </div> -->
 
-    <div class="card">
-        <div class="card-header">
-            <img  [src]="user.image" alt="Person" class="person-img">
-        </div>
-        <div class="card-body">
-            <h2>{{ user.firstName }} {{user.lastName}}</h2>
-            <h4>{{ user.role }}</h4>
-            <p class="status " [ngClass]="user.status==='active'?'active_status':'other_status'">{{user.status}}</p>
-            <div class="flex">
-            <div class="flex-1   py-3 rounded-es-lg ">
-                <button class=" btns btn_primary" (click)="updateUser(user)">Update</button>
-            </div>
-            <div class="flex-1 py-3 rounded-ee-lg ">
-                <button class=" btns btn_secondary" (click)="deleteUser(user)">Remove</button>
-    
-            </div>
-        </div>
-        </div>
-        
+<div class="card">
+  <div class="card-header">
+    <p
+    class="status"
+    [ngClass]="user.status === 'active' ? 'active_status' : 'other_status'"
+  >
+    {{ user.status }}
+  </p>
+    <img [src]="user.image" alt="Person" class="person-img" />
+  </div>
+  <div class="card-body">
+    <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+    <h4>{{ user.role }}</h4>
+ 
+    <p class="text-neutral-600">{{user.shortDescription}}</p>
+    <p><mat-slide-toggle (change)="onChange($event)" [checked]="user.status==='active'">{{user.status}}</mat-slide-toggle></p>
+    <div class="flex">
+      <div class="flex-1 py-3 rounded-es-lg">
+        <button class="btns btn_primary" (click)="updateUser(user)">
+          Update
+        </button>
+      </div>
+      <div class="flex-1 py-3 rounded-ee-lg">
+        <button class="btns btn_secondary" (click)="deleteUser(user)">
+          Remove
+        </button>
+      </div>
     </div>
+  </div>
+</div>

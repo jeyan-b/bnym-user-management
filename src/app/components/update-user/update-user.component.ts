@@ -27,6 +27,7 @@ export class UpdateUserComponent {
       firstName: [data.firstName, Validators.required],
       employeeId: [data.employeeId, Validators.required],
       image: [data.image, Validators.required],
+      shortDescription:[data.shortDescription]
     });
   }
 

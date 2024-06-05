@@ -9,4 +9,6 @@ export interface User {
   status: string;
   role: string;
   image: string;
+  shortDescription:string,
+
 }

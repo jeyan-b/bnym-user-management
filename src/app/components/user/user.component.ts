@@ -18,7 +18,7 @@ export class UserComponent {
   }
   updateUser(user: User) {
     const dialogRef = this.dialog.open(UpdateUserComponent, {
-      width: '800px',
+      // width: '800px',
       data: user,
     });
 

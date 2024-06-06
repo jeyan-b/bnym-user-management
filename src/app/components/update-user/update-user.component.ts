@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { User } from '../../models/user.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -40,6 +40,10 @@ export class UpdateUserComponent {
       this.updateNameField();
     });
   }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.userForm.controls; }
+    
   updateNameField(): void {
     const firstName = this.userForm.get('firstName')?.value; // Using optional chaining
     const lastName = this.userForm.get('lastName')?.value; // Using optional chaining

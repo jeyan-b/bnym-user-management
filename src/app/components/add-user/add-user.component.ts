@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { User } from '../../models/user.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateUserComponent } from '../update-user/update-user.component';
 import {MatInputModule} from '@angular/material/input';
@@ -12,7 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 })
 export class AddUserComponent {
   userForm: FormGroup;
-
+  numericNumberReg= /\-?\d*\.?\d{1,2}/;
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddUserComponent>,
@@ -22,7 +22,7 @@ export class AddUserComponent {
       id: [''],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       status: ['', Validators.required],
       role: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -34,6 +34,9 @@ export class AddUserComponent {
   }
 
   ngOnInit(): void {}
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.userForm.controls; }
 
   onCancel(): void {
     this.dialogRef.close();

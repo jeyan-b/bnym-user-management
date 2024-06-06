@@ -1,53 +1,146 @@
 <h2 mat-dialog-title>Add User</h2>
 <mat-dialog-content>
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="grid grid-cols-2 gap-3">
-        <mat-form-field appearance="fill">
-            <mat-label>Id</mat-label>
-            <input matInput formControlName="employeeId">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Firstname</mat-label>
-            <input matInput formControlName="firstName">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Lastname</mat-label>
-            <input matInput formControlName="lastName">
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Avatar Src</mat-label>
-            <input matInput formControlName="image">
-        </mat-form-field>
-
-
-
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Role</mat-label>
-            <input matInput formControlName="role">
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Employee Id</mat-label>
+                <input matInput formControlName="employeeId">           
+            </mat-form-field>
+            @if (f['employeeId'].touched && f['employeeId'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['employeeId'].errors['required']) {
+                  <div>Employee Id is required</div>
+                  }
+                </div>
+                }
+            </div>
+           <div class="form-control-row">
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+    
+            @if (f['name'].touched && f['name'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['name'].errors['required']) {
+                  <div>Name is required</div>
+                  }
+                </div>
+                }
+                </div>
+           <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Firstname</mat-label>
+                <input matInput formControlName="firstName">
+            </mat-form-field>
+            @if (f['firstName'].touched && f['firstName'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['firstName'].errors['required']) {
+                  <div>First name is required</div>
+                  }
+                </div>
+                }
+        </div>
+        <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput formControlName="lastName">
+            </mat-form-field>
+            @if (f['lastName'].touched && f['lastName'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['lastName'].errors['required']) {
+                  <div>Last name is required</div>
+                  }
+                </div>
+                }
+        </div>
+            
+        <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Avatar Src</mat-label>
+                <input matInput formControlName="image">
+            </mat-form-field>
+            @if (f['image'].touched && f['image'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['image'].errors['required']) {
+                  <div>Avatar is required</div>
+                  }
+                </div>
+                }
+            </div>
+            <div class="form-control-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+                @if (f['email'].touched && f['email'].errors) {
+                    <div class="invalid-error-msg">
+                      @if (f['email'].errors['required']) {
+                      <div>Email is required</div>
+                      }
+                      @if (f['email'].errors['email']) {
+                        <div>Email must be a valid email address</div>
+                        }
+                    </div>
+                    }
+            </div>
+            <div class="form-control-row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Role</mat-label>
+                    <input matInput formControlName="role">
+                </mat-form-field>
+                @if (f['role'].touched && f['role'].errors) {
+                    <div class="invalid-error-msg">
+                      @if (f['role'].errors['required']) {
+                      <div>Role is required</div>
+                      }
+                    </div>
+                    }
+            </div>
+            <div class="form-control-row">
+        <mat-form-field class="example-full-width leave-comment">
             <mat-label>Leave a comment</mat-label>
             <textarea matInput placeholder="Ex. It makes me feel..." formControlName="shortDescription"></textarea>
           </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Mobile</mat-label>
-            <input matInput formControlName="phoneNumber">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Status</mat-label>
-            <input matInput formControlName="status">
-        </mat-form-field>
+        </div>
+          <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Mobile</mat-label>
+                <input matInput formControlName="phoneNumber" oninput="this.value=this.value.replace(/[^\d]/,'')">
+            </mat-form-field>
+            @if (f['phoneNumber'].touched && f['phoneNumber'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['phoneNumber'].errors['minlength']) {
+                  <div>Enter 10 digit valid mobile number</div>
+                  }
+                  @if (f['phoneNumber'].errors['maxlength']) {
+                    <div>Enter 10 digit valid mobile number</div>
+                    }
+                  @if (f['phoneNumber'].errors['required']) {
+                    <div>Mobile number is required</div>
+                    }
+                </div>
+                }
+        </div>
+        <div class="form-control-row">
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <input matInput formControlName="status">
+            </mat-form-field>
+            @if (f['status'].touched && f['status'].errors) {
+                <div class="invalid-error-msg">
+                  @if (f['status'].errors['required']) {
+                  <div>Status is required</div>
+                  }
+                </div>
+                }
+        </div>
+
+        
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="gap-4" align="center">
-    <button class="btns btn_secondary" (click)="onCancel()">Cancel</button>
-    <button class="btns btn_primary" color="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Add</button>
+    <button class="btns btn_secondary cancel-btn" (click)="onCancel()">Cancel</button>
+    <button class="btns btn_primary add-btn" color="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Add</button>
 </mat-dialog-actions>
